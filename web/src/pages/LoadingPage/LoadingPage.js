@@ -23,14 +23,7 @@ const LoadingPage = () => {
     <>
       <MetaTags title="Loading" description="Loading page" />
 
-      <h1>LoadingPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/LoadingPage/LoadingPage.js</code>
-      </p>
-      <p>
-        My default route is named <code>loading</code>, link to me with `
-        <Link to={routes.loading()}>Loading</Link>`
-      </p>
+      <p>Loading...</p>
     </>
   )
 }
