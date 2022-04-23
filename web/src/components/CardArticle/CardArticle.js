@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import LazyLoadImage from '@souvik1991/react-lazy-load-image'
+import fallbackImg from '../../../public/placeholder.jpg'
 
 const variants = {
   closed: { scale: 1, height: '220px' },
@@ -13,7 +15,6 @@ const Card = styled(motion.div)`
   border-radius: 12px;
   width: 300px;
   height: 260px;
-  flex=1;
   margin: 10px;
   backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(20px) saturate(171%);
@@ -22,7 +23,7 @@ const Card = styled(motion.div)`
   overflow: hidden;
 `
 
-Card.Img = styled.img`
+Card.Img = styled(LazyLoadImage)`
   width: 100%;
   height: 160px;
   object-fit: cover;
@@ -77,7 +78,10 @@ export default function CardArticle({ article }) {
       animate={isOpen ? 'open' : 'closed'}
       variants={variants}
     >
-      <Card.Img src={article.top_image_url}></Card.Img>
+      <Card.Img
+        src={article.top_image_url}
+        placeholder={fallbackImg}
+      ></Card.Img>
       <Card.Body>
         <Card.Title>{article.resolved_title}</Card.Title>
 

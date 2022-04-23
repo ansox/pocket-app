@@ -3822,6 +3822,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@souvik1991/react-lazy-load-image@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@souvik1991/react-lazy-load-image@npm:1.0.5"
+  dependencies:
+    debounce-promise: ^3.1.2
+  peerDependencies:
+    react: ^16.13.0
+    react-dom: ^16.13.0
+  checksum: 6af8410aa347718354b3ece1f3585ad4d2a9211cfd83291599eb628e58cd2b56dd40751f02962259194e26a963e7f14018ea36f22af17c238302e02f1de6790a
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-a11y@npm:6.4.22":
   version: 6.4.22
   resolution: "@storybook/addon-a11y@npm:6.4.22"
@@ -9879,6 +9891,13 @@ __metadata:
   version: 2.28.0
   resolution: "date-fns@npm:2.28.0"
   checksum: ecdacd36326e7f5f8c4f1e78ae931a8997109f1c841f5163053b866585ca899521b0e7a114eeb48a9fe5135a550787bd4bbd8baa321cded0b4d823f847889a80
+  languageName: node
+  linkType: hard
+
+"debounce-promise@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "debounce-promise@npm:3.1.2"
+  checksum: 68d22b2ed5e8c890643c1b02dadffc9a6a31ec6db225530f34dfeef14112977bedf735d5141e29264ce608ec59375665d582f0013362fa61c7a92d3c0f2f410d
   languageName: node
   linkType: hard
 
@@ -23167,6 +23186,7 @@ __metadata:
     "@redwoodjs/forms": 1.1.0
     "@redwoodjs/router": 1.1.0
     "@redwoodjs/web": 1.1.0
+    "@souvik1991/react-lazy-load-image": ^1.0.5
     framer-motion: ^6.3.0
     prop-types: 15.8.1
     react: 17.0.2
