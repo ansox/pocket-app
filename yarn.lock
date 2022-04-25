@@ -10207,6 +10207,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dexie-react-hooks@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "dexie-react-hooks@npm:1.1.1"
+  peerDependencies:
+    "@types/react": ">=16"
+    dexie: ">=3.1.0-alpha.1 <5.0.0"
+    react: ">=16"
+  checksum: 78b5cf009d777a0bc4f67840d7f316a9aa99dfec8b3d95001b259c7091404ae909983d9a6e020e99b3af7edf87aeeb365bbe440bd273822f2461d1c627c02f1e
+  languageName: node
+  linkType: hard
+
+"dexie@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "dexie@npm:3.2.1"
+  checksum: 8f5dc133e460090cd1183f3b327ddc394fc2bacef10b3d9cbb7eb9c9d89894d395e87cfa55696a0326ccb2eac96efec6ffaf70bd72dfe983e8d0b1ee3f4226cf
+  languageName: node
+  linkType: hard
+
 "diff-sequences@npm:^27.5.1":
   version: 27.5.1
   resolution: "diff-sequences@npm:27.5.1"
@@ -20193,6 +20211,8 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/core": 1.1.0
+    dexie: ^3.2.1
+    dexie-react-hooks: ^1.1.1
     yarn: ^1.22.18
   languageName: unknown
   linkType: soft

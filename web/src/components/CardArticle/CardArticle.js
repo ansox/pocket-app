@@ -19,7 +19,7 @@ const Card = styled(motion.div)`
   backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(20px) saturate(171%);
   -webkit-backdrop-filter: blur(20px) saturate(171%);
-  background-color: rgba(0, 0, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   overflow: hidden;
 `
 
@@ -81,9 +81,10 @@ export default function CardArticle({ article }) {
       <Card.Img
         src={article.top_image_url}
         placeholder={fallbackImg}
+        debounceDelay={30}
       ></Card.Img>
       <Card.Body>
-        <Card.Title>{article.resolved_title}</Card.Title>
+        <Card.Title>{article.given_title}</Card.Title>
 
         {isOpen && (
           <>
