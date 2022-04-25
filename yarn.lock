@@ -6893,6 +6893,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 1.1.0
     "@redwoodjs/graphql-server": 1.1.0
+    cross-undici-fetch: ^0.3.0
   languageName: unknown
   linkType: soft
 
