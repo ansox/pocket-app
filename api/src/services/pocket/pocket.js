@@ -5,12 +5,14 @@ export const getPocketArticles = async ({ code, since }) => {
     return Object.values(articles)
   }
 
+  console.log(process.env.POCKET_APP_ID)
+
   const raw = JSON.stringify({
-    consumer_key: '',
+    consumer_key: process.env.POCKET_APP_ID,
     access_token: code,
     sort: 'newest',
     status: 'unread',
-    since: null,
+    since,
   })
 
   const myHeaders = new Headers()
@@ -29,8 +31,6 @@ export const getPocketArticles = async ({ code, since }) => {
     .then((result) => result.list)
 
   const arr = articlesToArray(result)
-
-  console.log(arr)
 
   return arr
 }
