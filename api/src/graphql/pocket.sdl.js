@@ -7,7 +7,12 @@ export const schema = gql`
     given_url: String
   }
 
+  type LoginPocket {
+    code: String!
+  }
+
   type Query {
     getPocketArticles(code: String!, since: String!): [PocketArticle]! @skipAuth
+    login: LoginPocket @skipAuth
   }
 `
