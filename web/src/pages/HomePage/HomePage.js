@@ -1,6 +1,7 @@
 import { MetaTags } from '@redwoodjs/web'
 import styled from 'styled-components'
 import ArticlesCell from 'src/components/ArticlesCell'
+import { loadLastSync } from 'src/services/loader'
 
 const Container = styled.div`
   width: 100%;
@@ -18,12 +19,14 @@ const Container = styled.div`
 `
 
 const HomePage = () => {
+  const since = loadLastSync()
+
   return (
     <>
       <MetaTags title="Home" description="Home page" />
 
       <Container>
-        <ArticlesCell code="fe971d45-3a8a-9142-f09d-47d08d" since="" />
+        <ArticlesCell code="fe971d45-3a8a-9142-f09d-47d08d" since={since} />
       </Container>
     </>
   )

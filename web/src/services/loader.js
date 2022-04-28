@@ -16,5 +16,5 @@ export function saveLastSync() {
 }
 
 export function loadLastSync() {
-  return localStorage.getItem('last_sync')
+  return localStorage.getItem('last_sync') || ''
 }

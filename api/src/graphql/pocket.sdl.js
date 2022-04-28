@@ -5,6 +5,7 @@ export const schema = gql`
     excerpt: String
     top_image_url: String
     given_url: String
+    time_added: String
   }
 
   type LoginPocket {
