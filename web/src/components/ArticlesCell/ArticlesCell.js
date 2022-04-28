@@ -9,35 +9,27 @@ export const QUERY = gql`
       top_image_url
       given_url
       time_added
+      status
     }
   }
 `
 
 export const Loading = () => <div>Loading...</div>
 
-// export const Empty = async () => {
-//   saveLastSync()
-//   const localArticles = await loadArticles()
-//   console.log(localArticles)
-
-//   return (
-//     <ul>
-//       {localArticles.map((article) => {
-//         return <CardArticle key={article.id} article={article} />
-//       })}
-//     </ul>
-//   )
-// }
+export const afterQuery = async (data) => {
+  console.log('data => ', data)
+  await saveArticles(data.articles)
+  saveLastSync()
+  const localArticles = await loadArticles()
+  console.log('localArticles => ', localArticles)
+  return { articles: localArticles }
+}
 
 export const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
 export const Success = ({ articles }) => {
-  saveArticles(articles)
-  saveLastSync()
-  loadArticles().then((result) => console.log(result))
-
   return (
     <ul>
       {articles.map((article) => {
