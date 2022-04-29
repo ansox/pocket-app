@@ -1,7 +1,8 @@
 import { loadArticles, saveArticles, saveLastSync } from 'src/services/loader'
 import CardArticle from '../CardArticle/CardArticle'
+import { gql, useQuery } from '@apollo/client'
 
-export const QUERY = gql`
+const QUERY = gql`
   query GetArticlesQuery($code: String!, $since: String!) {
     articles: getPocketArticles(code: $code, since: $since) {
       given_title
@@ -14,22 +15,13 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+const Loading = () => <div>Loading...</div>
 
-export const afterQuery = async (data) => {
-  console.log('data => ', data)
-  await saveArticles(data.articles)
-  saveLastSync()
-  const localArticles = await loadArticles()
-  console.log('localArticles => ', localArticles)
-  return { articles: localArticles }
-}
-
-export const Failure = ({ error }) => (
+const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ articles }) => {
+const Success = ({ articles }) => {
   return (
     <ul>
       {articles.map((article) => {
@@ -38,3 +30,39 @@ export const Success = ({ articles }) => {
     </ul>
   )
 }
+
+const ArticlesCell = (props) => {
+  const { error, loading, data } = useQuery(QUERY, {
+    variables: { code: props.code, since: props.since },
+  })
+
+  const [articles, setArticles] = React.useState(null)
+
+  React.useEffect(() => {
+    async function afterLoad() {
+      if (data) {
+        console.log('data => ', data)
+        await saveArticles(data.articles)
+        saveLastSync()
+      }
+      const localArticles = await loadArticles()
+      setArticles({ articles: localArticles })
+    }
+
+    afterLoad()
+  }, [data])
+
+  if (error) {
+    if (Failure) {
+      return <Failure error={error} />
+    } else {
+      console.error(error)
+    }
+  } else if (loading) {
+    return <Loading />
+  } else if (articles) {
+    return <Success {...articles} />
+  }
+}
+
+export default ArticlesCell
