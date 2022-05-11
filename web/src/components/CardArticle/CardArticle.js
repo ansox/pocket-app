@@ -1,26 +1,9 @@
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import LazyLoadImage from '@souvik1991/react-lazy-load-image'
 import fallbackImg from '../../../public/placeholder.jpg'
 
-const variants = {
-  closed: { scale: 1, height: '220px' },
-  open: { scale: 1, height: '310px' },
-}
-
-const Card = styled(motion.div)`
-  font-family: 'Rubik', sans-serif;
+const Card = styled.div`
   display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  width: 300px;
-  height: 260px;
-  margin: 10px;
-  backdrop-filter: blur(16px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(171%);
-  -webkit-backdrop-filter: blur(20px) saturate(171%);
-  background-color: rgba(255, 255, 255, 0.5);
-  overflow: hidden;
 `
 
 Card.Img = styled(LazyLoadImage)`
@@ -71,34 +54,32 @@ Card.Link = styled.a`
 
 export default function CardArticle({ article }) {
   return (
-    <div className="w-[90%] sm:w-1/4 sm:min-w-[300px] h-80 flex flex-col bg-white bg-opacity-30 rounded-lg overflow-hidden backdrop-blur-3xl">
-      <Card.Img
+    <div className="relative w-[90%] sm:w-1/4 sm:min-w-[250px] h-80 flex flex-col bg-white bg-opacity-30 rounded-lg overflow-hidden backdrop-blur-3xl">
+      <LazyLoadImage
+        className={'w-full h-[160px] object-cover'}
         src={article.top_image_url}
         placeholder={fallbackImg}
         debounceDelay={30}
-      ></Card.Img>
-      <Card.Body>
-        <Card.Title>{article.given_title}</Card.Title>
+      ></LazyLoadImage>
+      <div className="px-3 py-3">
+        <h1 className="font-semibold text-base">{article.given_title}</h1>
 
-        <>
-          <Card.ExcerptSection>
-            <p>{article.excerpt}</p>
-          </Card.ExcerptSection>
-        </>
-      </Card.Body>
+        <div className="w-[100%] h-[60px] overflow-hidden text-sm p-0 mt-2">
+          <p className="w-[100%] m-0">{article.excerpt}</p>
+        </div>
+      </div>
 
-      <Card.LinkSection>
-        <Card.Link
-          href={article.given_url}
-          onClick={(e) => {
-            e.stopPropagation()
-          }}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Read more
-        </Card.Link>
-      </Card.LinkSection>
+      <a
+        className="absolute right-4 bottom-2 no-underline text-violet-700 font-semibold text-sm"
+        href={article.given_url}
+        onClick={(e) => {
+          e.stopPropagation()
+        }}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Read more
+      </a>
     </div>
   )
 }
