@@ -70,14 +70,8 @@ Card.Link = styled.a`
 `
 
 export default function CardArticle({ article }) {
-  const [isOpen, setIsOpen] = React.useState(false)
-
   return (
-    <Card
-      onClick={() => setIsOpen((open) => !open)}
-      animate={isOpen ? 'open' : 'closed'}
-      variants={variants}
-    >
+    <div className="w-[90%] sm:w-1/4 sm:min-w-[300px] h-80 flex flex-col bg-white bg-opacity-30 rounded-lg overflow-hidden backdrop-blur-3xl">
       <Card.Img
         src={article.top_image_url}
         placeholder={fallbackImg}
@@ -86,29 +80,25 @@ export default function CardArticle({ article }) {
       <Card.Body>
         <Card.Title>{article.given_title}</Card.Title>
 
-        {isOpen && (
-          <>
-            <Card.ExcerptSection>
-              <p>{article.excerpt}</p>
-            </Card.ExcerptSection>
-          </>
-        )}
+        <>
+          <Card.ExcerptSection>
+            <p>{article.excerpt}</p>
+          </Card.ExcerptSection>
+        </>
       </Card.Body>
 
-      {isOpen && (
-        <Card.LinkSection>
-          <Card.Link
-            href={article.given_url}
-            onClick={(e) => {
-              e.stopPropagation()
-            }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read more
-          </Card.Link>
-        </Card.LinkSection>
-      )}
-    </Card>
+      <Card.LinkSection>
+        <Card.Link
+          href={article.given_url}
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read more
+        </Card.Link>
+      </Card.LinkSection>
+    </div>
   )
 }

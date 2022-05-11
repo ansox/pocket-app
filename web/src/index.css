@@ -1,6 +1,7 @@
 body {
   margin: 0;
   @apply bg-indigo-500;
+  font-family: 'Rubik', sans-serif;
 }
 
 @tailwind base;

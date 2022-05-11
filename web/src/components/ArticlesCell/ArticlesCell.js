@@ -23,11 +23,11 @@ const Failure = ({ error }) => (
 
 const Success = ({ articles }) => {
   return (
-    <ul>
+    <div className="flex flex-row flex-wrap gap-4 justify-center pt-3">
       {articles.map((article) => {
         return <CardArticle key={article.id} article={article} />
       })}
-    </ul>
+    </div>
   )
 }
 
