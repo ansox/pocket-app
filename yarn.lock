@@ -5101,6 +5101,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/line-clamp@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@tailwindcss/line-clamp@npm:0.4.0"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  checksum: d2ac7483bf3e56995736d6c78e456a4776558fe58f26beec105ae9a70becc95f47149e9e668ac5adc89cae36dafe0c611993fa547e03e00bb35800920e177093
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:^8.0.0, @testing-library/dom@npm:^8.11.1":
   version: 8.13.0
   resolution: "@testing-library/dom@npm:8.13.0"
@@ -23436,6 +23445,7 @@ __metadata:
     "@redwoodjs/router": 1.1.0
     "@redwoodjs/web": 1.1.0
     "@souvik1991/react-lazy-load-image": ^1.0.5
+    "@tailwindcss/line-clamp": ^0.4.0
     autoprefixer: ^10.4.7
     framer-motion: ^6.3.0
     postcss-loader: ^6.2.1
