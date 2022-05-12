@@ -14,7 +14,7 @@ Card.Img = styled(LazyLoadImage)`
 
 export default function CardArticle({ article }) {
   return (
-    <div className="relative w-[320px] sm:w-1/4 sm:min-w-[250px] h-[340px] flex flex-col bg-white bg-opacity-30 backdrop-blur-md rounded-lg overflow-hidden backdrop-blur-3xl">
+    <div className="relative w-[320px] sm:w-1/4 sm:min-w-[250px] h-[340px] flex flex-col bg-white bg-opacity-30 backdrop-blur-md rounded-lg overflow-hidden">
       <LazyLoadImage
         className={'w-full h-[160px] object-cover'}
         src={article.top_image_url}
